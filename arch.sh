@@ -91,6 +91,14 @@ function setup_initcpio()
 {
 	echo
 	echo "### Generating initcpio"
+	
+	cat /etc/mkinitcpio.conf | grep -v "^HOOKS=" >/etc/mkinitcpio.conf.new
+	cat >>/etc/mkinitcpio.conf.new <<__EOF__
+HOOKS=(base udev autodetect modconf block filesystems keyboard resume fsck)
+__EOF__
+	mv /etc/mkinitcpio.conf /etc/mkinitcpio.conf.orig
+	mv /etc/mkinitcpio.conf.new /etc/mkinitcpio.conf
+	
 	mkinitcpio -P
 }
 
@@ -331,16 +339,6 @@ function setup_etc()
 {
 	echo
 	echo "### Configuring /etc"
-	
-	if [ ! -f /etc/mkinitcpio.conf.orig ]; then
-		cat /etc/mkinitcpio.conf | grep -v "^HOOKS=" >/etc/mkinitcpio.conf.new
-		cat >>/etc/mkinitcpio.conf.new <<__EOF__
-HOOKS=(base udev autodetect modconf block filesystems keyboard resume fsck)
-__EOF__
-		mv /etc/mkinitcpio.conf /etc/mkinitcpio.conf.orig
-		mv /etc/mkinitcpio.conf.new /etc/mkinitcpio.conf
-		mkinitcpio -P
-	fi
 	
 	if [ ! -f /etc/systemd/logind.conf.orig ]; then
 		cat /etc/systemd/logind.conf | grep -v "^HandlePowerKey=" | grep -v "^HandleHibernateKey=" >/etc/systemd/logind.conf.new
