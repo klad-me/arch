@@ -339,6 +339,7 @@ HOOKS=(base udev autodetect modconf block filesystems keyboard resume fsck)
 __EOF__
 		mv /etc/mkinitcpio.conf /etc/mkinitcpio.conf.orig
 		mv /etc/mkinitcpio.conf.new /etc/mkinitcpio.conf
+		mkinitcpio -P
 	fi
 	
 	if [ ! -f /etc/systemd/logind.conf.orig ]; then
