@@ -153,7 +153,12 @@ function install_sys_utils()
 		meson \
 		pkgconf \
 		expac \
-		jq
+		jq \
+		terminus-font \
+		sof-firmware \
+		alsa-utils \
+		pulseaudio \
+		pulseaudio-alsa
 }
 
 
@@ -190,7 +195,8 @@ function install_file_utils()
 		p7zip \
 		squashfs-tools \
 		unrar \
-		zip
+		zip \
+		unzip
 }
 
 
@@ -234,7 +240,8 @@ function install_dev_tools()
 		php \
 		valgrind \
 		lrzsz \
-		picocom
+		picocom \
+		bc
 }
 
 
@@ -260,6 +267,7 @@ function install_Xorg()
 	echo "### Installing Xorg"
 	pacman -S --noconfirm \
 		xf86-input-libinput \
+		xf86-input-synaptics \
 		xf86-video-intel \
 		xkeyboard-config \
 		xorg-fonts-100dpi \
@@ -285,6 +293,7 @@ function install_Xorg()
 		xorg-xrandr \
 		xorg-xrdb \
 		xorg-xset \
+		xorg-xdpyinfo \
 		fluxbox \
 		ttf-liberation \
 		ttf-opensans
@@ -315,7 +324,11 @@ function install_X_apps()
 		virtualbox-host-modules-arch \
 		xpdf \
 		xsel \
-		cbatticon
+		xlockmore \
+		xbacklight \
+		cbatticon \
+		libreoffice-fresh \
+		libreoffice-fresh-ru
 }
 
 
