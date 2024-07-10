@@ -294,6 +294,7 @@ function install_Xorg()
 		xorg-xrdb \
 		xorg-xset \
 		xorg-xdpyinfo \
+		xorg-xbacklight \
 		fluxbox \
 		ttf-liberation \
 		ttf-opensans
@@ -325,7 +326,6 @@ function install_X_apps()
 		xpdf \
 		xsel \
 		xlockmore \
-		xbacklight \
 		cbatticon \
 		libreoffice-fresh \
 		libreoffice-fresh-ru
